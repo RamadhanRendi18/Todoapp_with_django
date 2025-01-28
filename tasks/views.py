@@ -3,5 +3,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def index(index):
-    return HttpResponse("Hello World")
+def index(request):
+    # return HttpResponse("Hello World")
+    return render(request, 'tasks/list.html')
