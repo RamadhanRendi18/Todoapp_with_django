@@ -7,5 +7,11 @@ python manage.py migrate
 - untuk buat superuser untuk masuk ke db
 python .\manage.py createsuperuser
 
+- Buat migration pada python
+python manage.py makemigrations
+
+Rendi
+12345678
+
 
 https://youtu.be/4RWFvXDUmjo?si=6kGrzd2s3fd1NB7E&t=585
