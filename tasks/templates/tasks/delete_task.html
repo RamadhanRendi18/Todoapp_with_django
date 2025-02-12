@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Task</title>
+    <title>Delete Task</title>
 </head>
 <body>
-    <h1>Update Task</h1>
-    
+    <h1>Delete Task</h1>
+    <p>Are you sure you want to delete "{{ task.title }}"?</p>
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update Task</button>
+        <button type="submit">Confirm</button>
     </form>
-
-    <a href="{% url 'task_list' %}">Back to List</a>
+    <a href="/">Cancel</a>
 </body>
 </html>
