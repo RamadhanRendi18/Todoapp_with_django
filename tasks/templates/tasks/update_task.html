@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Update Task</h1>
-    
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update Task</button>
-    </form>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Update Task</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Task Title</label>
+                <input type="text" name="title" id="title" value="{{ task.title }}" class="mt-1 block w-full border border-gray-300 rounded-md p-2" required>
+            </div>
+            <div class="mb-4">
+                <label for="completed" class="inline-flex items-center">
+                    <input type="checkbox" name="complete" id="complete" {% if task.complete %}checked{% endif %} class="form-checkbox h-5 w-5 text-blue-600">
+                    <span class="ml-2 text-sm text-gray-700">Completed</span>
+                </label>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 rounded hover:bg-blue-600">Update Task</button>
+        </form>
 
-    <a href="{% url 'task_list' %}">Back to List</a>
+        <a href="{% url 'task_list' %}" class="block text-center mt-4 text-blue-500 hover:underline">Back to List</a>
+    </div>
 </body>
 </html>

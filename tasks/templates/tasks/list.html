@@ -4,20 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>To-Do List</h1>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">To-Do List</h1>
 
-    <a href="{% url 'create_task' %}">Create</a>
+        <a href="{% url 'create_task' %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create</a>
 
-    <ul>
-        {% for task in tasks %}
-            <li>
-                {{ task.title }} - {{ task.description }}
-                <a href="{% url 'update_task' task.id %}">Edit</a>
-                <a href="{% url 'delete_task' task.id %}">Delete</a>
+        <ul class="mt-4">
+            <li class="bg-white shadow-md rounded p-4 mb-2 flex justify-between items-center">
+                <div>
+                    <h2 class="font-semibold">TITLE</h2>
+                </div>
+                <div>
+                    <h2 class="font-semibold">STATUS</h2>
+                </div>
+                <div>
+                    <h2 class="font-semibold">ACTION</h2>
+                </div>
             </li>
-        {% endfor %}
-    </ul>
+            {% for task in tasks %}
+                <li class="bg-white shadow-md rounded p-4 mb-2 flex justify-between items-center">
+                    <div>
+                        <h2 class="font-semibold">{{ task.title }}</h2>
+                    </div>
+                    <div>
+                        {% if task.complete %}
+                            <span class="text-green-500">Completed</span>
+                        {% else %}
+                            <span class="text-red-500">Not Completed</span>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <a href="{% url 'update_task' task.id %}" class="text-blue-500 hover:underline">Edit</a>
+                        <a href="{% url 'delete_task' task.id %}" class="text-red-500 hover:underline ml-2">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Delete Task</h1>
-    <p>Are you sure you want to delete "{{ task.title }}"?</p>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit">Confirm</button>
-    </form>
-    <a href="/">Cancel</a>
+<body class="bg-gray-100 p-4">
+    <div class="container mx-auto bg-white rounded shadow-md p-6">
+        <h1 class="text-2xl font-bold mb-4">Delete Task</h1>
+        <p class="mb-6">Are you sure you want to delete "{{ task.title }}"?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Confirm
+            </button>
+            <a href="/" class="ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</a>
+        </form>
+    </div>
 </body>
 </html>
