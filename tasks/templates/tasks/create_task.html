@@ -10,18 +10,26 @@
     <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold mb-6">Add New Task</h1>
         
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+
             <div class="mb-4">
                 <label for="title" class="block text-sm font-medium text-gray-700">Task Title</label>
                 <input type="text" name="title" id="title" required class="mt-1 block w-full border border-gray-300 rounded-md p-2" placeholder="Enter task title">
             </div>
+
             <div class="mb-4">
                 <label for="complete" class="inline-flex items-center">
                     <input type="checkbox" name="complete" id="complete" class="form-checkbox h-5 w-5 text-blue-600">
                     <span class="ml-2 text-sm text-gray-700">Completed</span>
                 </label>
             </div>
+
+            <div class="mb-4">
+                <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
+                <input type="file" name="image" id="image" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            </div>
+            
             <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 rounded hover:bg-blue-600">Add Task</button>
         </form>
 

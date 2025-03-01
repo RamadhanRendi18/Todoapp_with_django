@@ -25,7 +25,7 @@ def index(request):
 def create_task(request):
     form = TaskForm()
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = TaskForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('task_list')  # Ganti dengan nama URL yang sesuai

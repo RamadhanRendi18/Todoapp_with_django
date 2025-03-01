@@ -28,6 +28,9 @@
                 <li class="bg-white shadow-md rounded p-4 mb-2 flex justify-between items-center">
                     <div>
                         <h2 class="font-semibold">{{ task.title }}</h2>
+                        {% if task.image %}
+                            <img src="{{ task.image.url }}" alt="{{ task.title }}" class="mt-2 rounded-md w-32 h-32 object-cover">
+                        {% endif %}
                     </div>
                     <div>
                         {% if task.complete %}

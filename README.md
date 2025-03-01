@@ -13,5 +13,7 @@ python manage.py makemigrations
 Rendi
 12345678
 
+venv\Scripts\activate
+
 
 https://youtu.be/4RWFvXDUmjo?si=J5yxgtexaUkxzruR&t=1344
