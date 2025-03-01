@@ -30,7 +30,7 @@
             {% for task in tasks %}
                 <li class="bg-white shadow-md rounded p-4 mb-2 flex justify-between items-center">
                     <div>
-                        <h2 class="font-semibold">{{ task.title|slice:":20" }}{% if task.title|length > 20 %}...{% endif %}</h2>
+                        <h2 class="font-semibold" title="{{ task.title }}">{{ task.title|slice:":6" }}{% if task.title|length > 6 %}...{% endif %}</h2>
                     </div>
                     <div>
                         {% if task.image %}
